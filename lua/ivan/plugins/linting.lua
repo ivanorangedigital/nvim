@@ -8,7 +8,7 @@ return {
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
-			handlebars = { "djlint" },
+			-- handlebars = { "djlint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

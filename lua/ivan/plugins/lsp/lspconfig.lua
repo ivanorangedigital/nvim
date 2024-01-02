@@ -19,6 +19,9 @@ return {
 			opts.buffer = bufnr
 
 			-- set keybinds
+			opts.desc = "Go to declaration"
+			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+
 			opts.desc = "See available code actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
@@ -52,6 +55,8 @@ return {
 		end
 
 		-- configure angular server
+		local util = require("lspconfig.util")
+		local root_dir = util.root_pattern("project.json", "angular.json")
 		lspconfig["angularls"].setup({
 			-- cmd = {
 			-- 	"ngserver",
@@ -61,6 +66,7 @@ return {
 			-- 	"/usr/local/lib/node_modules/@angular/language-server/",
 			-- 	"--stdio",
 			-- },
+			root_dir = root_dir,
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -92,6 +98,16 @@ return {
 
 		-- configure clangd language server
 		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- lspconfig["gopls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+
+		lspconfig["golangci_lint_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

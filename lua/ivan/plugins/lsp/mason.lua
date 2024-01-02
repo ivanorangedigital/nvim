@@ -31,6 +31,7 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"clangd",
+				"gopls",
 			},
 
 			-- auto install configured server with lspconfig
@@ -45,6 +46,7 @@ return {
 				"djlint",
 				"clang-format",
 			},
+			automatic_installation = true,
 		})
 	end,
 }
