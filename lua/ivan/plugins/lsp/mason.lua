@@ -32,6 +32,7 @@ return {
 				"emmet_ls",
 				"clangd",
 				"gopls",
+				-- "pyright",
 			},
 
 			-- auto install configured server with lspconfig

@@ -6,6 +6,16 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.keymap.set
 
+-- split keympas
+
+-- vertical split
+keymap("n", "<leader>vs", ":vs<CR>", opts)
+
+-- horizontal split
+keymap("n", "<leader>hs", ":split<CR>", opts)
+
+-- end split keympas
+
 -- tab keymaps
 
 -- open new tab
